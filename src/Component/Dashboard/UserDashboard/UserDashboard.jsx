@@ -5,7 +5,7 @@ import Tasklist from './Task/Tasklist';
 
 const UserDashboard = () => {
     return (
-        <div className='bg-stone-900 font-serif px-10 min-h-screen'>
+        <div className='bg-stone-900 font-serif p-10 min-h-screen'>
             <Header/>
             <TaskNumber/>
             <Tasklist/>
