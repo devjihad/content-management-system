@@ -1,13 +1,15 @@
 import React from 'react';
 
-const Login = () => {
+const Login = ({Click}) => {
+    // console.log(Click)
     const done=(e)=>{
     e.preventDefault()
     let email = e.target.email.value
-    const pass = e.target.pass.value
-    email = ''
+    let pass = e.target.pass.value
+   
     console.log(email, pass)
-    alert('lsdkfj')
+    Click(email, pass)
+    
     }
     return (
         <div className='flex justify-center items-center h-screen font-serif'>
