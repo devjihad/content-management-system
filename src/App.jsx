@@ -2,28 +2,31 @@
 import Login from './Component/Auth/Login';
 import UserDashboard from './Component/Dashboard/UserDashboard/UserDashboard';
 import AdminDashboard from './Component/Dashboard/AdminDashboard/AdminDashboard';
-import { useContext, useState } from 'react';
-import { Contaxt } from './Context/AuthContaxt';
+import { useContext, useEffect, useState } from 'react';
+import { Authprovider } from './Context/AuthContaxt';
+
 
 
 const App = () => {
-  const user = useContext(Contaxt)
+  const user = useContext(Authprovider)
   console.log(user)
 
+
   const [data , setdata] =useState(null)
-   console.log(data)
+  //  console.log(data)
   const Click =(email, password)=>{
     if(email === 'admin@gmail.com' && password == 1234){
       setdata('Admin')
      
   }
-  else if(email === 'emploee@gmail.com' && password == 1235){
+  else if(user && user.emploees.find((e)=>email == e.email && password == e.password)){
     setdata('emploee')
   }
   else{
     alert('Invalid Credintial')
   }
   }
+ 
  
   return (
     <div>
